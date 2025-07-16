@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARAH AI Chatbot</title>
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css"> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class='bx bx-menu'></i> <span>SARAH AI</span> 
+            </div>
+            <div class="model-select">
+                <p>Dolphin3.0 Mistral 24B</p>
+            </div>
+        </aside>
+
+        <main class="chat-area">
+            <header class="chat-header">
+                <div class="header-right">
+                    <button class="upgrade-btn"><i class='bx bx-rocket'></i> See Project <a href="#"></a></button>
+                    <div class="user-avatar"> 
+                        <img class="user-img" src="images/user.png" alt="User Avatar">
+                    </div> 
+                </div>
+            </header>
+
+            <div class="chat-messages" id="chat-messages">
+                <p class="greeting">Hello, this is SARAH AI</p>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="input-container">
+                    <textarea id="chat-input" placeholder="Ask SARAH AI"></textarea>
+                    <div class="input-actions">
+                        <button class="icon-btn"><i class='bx bx-plus'></i></button>
+                        <button class="icon-btn"><i class='bx bx-search-alt-2'></i> Deep Research</button>
+                        <button class="icon-btn"><i class='bx bx-image-add'></i> Canvas</button>
+                    </div>
+                </div>
+                <button id="send-button" class="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            marked.setOptions({
+                gfm: true,
+                breaks: true,
+                highlight: function(code, lang) {
+                    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+                    return hljs.highlight(code, { language }).value;
+                }
+            });
+
+            hljs.highlightAll(); 
+        });
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
